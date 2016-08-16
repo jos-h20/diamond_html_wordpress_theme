@@ -13,13 +13,34 @@
 
 get_header(); ?>
 
+<?php $bg_img = dwp_option('hp-banner-img', false, 'url');
+
+$bg_url = '';
+
+if ($bg_img != '') {
+        $bg_url = "background-image: url('" . $bg_img . "')";
+}
+
+?>
+
+<!-- ==== HEADERWRAP ==== -->
+	<div class="pagewrap" style="<?php echo $bg_url; ?>";
+	<header>
+    <?php if (dwp_option('hp-banner-title', 'Header Text') != '') {
+      echo '<h1>';
+      echo dwp_option('hp-banner-title');
+      echo '</h1>';
+    } ?>
+		</header>
+	</div><!-- /headerwrap -->
+
 <div class="jumbotron">
         <h1>Jumbotron</h1>
 
       </div>
 <div class="container">
 <div class="row">
-	<div id="primary" class="col-lg-9 col-md-9">
+	<div id="primary" class="col-lg-8 col-md-8">
 		<main id="main" class="site-main" role="main">
 
 		<?php if ( have_posts() ) : ?>
